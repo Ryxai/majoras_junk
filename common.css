@@ -1,0 +1,443 @@
+@charset "utf-8";
+/*Common features */
+body {
+ 	background: no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	font-family: "Droid sans", sans-serif;
+	color: #FFF;
+	font-size: 20pt;
+	width: 100%;
+	hieght:100%;
+	overflow: hidden;
+}
+
+div {
+	width: 100%;
+	height:100%;
+	position: fixed;
+}
+
+img.foreground {
+	width: 110%;
+	left: -0.5em;
+	bottom: -9em;
+	position: fixed;
+}
+
+#mountains {
+    z-index: 100;
+    position: absolute;
+}
+
+#valley {
+    z-index: 102;
+    position: absolute;
+}
+
+#moon{
+	position: fixed;
+	visibility: hidden;
+	z-index: 77;
+}
+
+#display_text {
+	z-index:500;
+	position: relative;
+	left: 6em;
+	top: 7em;
+	background: rgba(75,75,75,0.45);
+	width: 17.8em;
+    height: 2.5em;
+	border-radius: 4.5px;
+	
+}
+
+#displayText span {
+	visibility: hidden;
+}
+
+#thunderDisplay{
+    visibility: hidden;
+    z-index: 999999;
+}
+/*Transition Overlay*/
+.transitionOverlay {
+	position: fixed;
+	z-index: 999999;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000;
+	visibility: hidden;
+}
+
+#transitionSupertitle, #transitionTitle, #transitionSubtitle {
+	position: absolute;	
+	text-align:center;
+}
+
+#transitionSupertitle, #transitionSubtitle {
+	font-size: 150%;
+}
+
+#transitionSupertitle {
+		top: 4.2em;
+}
+
+#transitionTitle{
+	top: 2.5em;
+	font-size:300%;
+}
+
+#transitionSubtitle {
+	top: 8.4em;
+}
+
+/*Moon Rumble Animations*/
+@keyframes smallRumble {
+	0% 	 {  transform: translate(-1px,-0.5px);}
+	25%  {  transform: translate(1px, 0);}
+	50%  {  transform: translate(0px, 1px);}
+	75%  {  transform: translate(-0.5px,-0.5px);}
+	100% {  transform: translate(0.5px,0);}
+}
+
+@keyframes smallRumbleAlt {
+    0%   { transform: translate(-0.5px, -0.5px);}
+    25%  { transform: translate(0.5px, 1px);}
+    50%  { transform: translate(-1px, 0px);}
+    75%  { transform: translate(2px, -1px);}
+    100% { transform: translate(-1px, 0.5px);}
+}
+
+@keyframes bigRumble {
+	0% 	 {  transform: translate(-2px,-1px);}
+	25%  {  transform: translate(2px, 0);}
+	50%  {  transform: translate(0px, 2px);}
+	75%  {  transform: translate(-1px,-1px);}
+	100% {  transform: translate(1px,0);}
+}
+
+@keyframes bigRumbleAlt {
+    0%   { transform: translate(-1px, -1px);}
+    25%  { transform: translate(1px, 2px);}
+    50%  { transform: translate(-2px, 0px);}
+    75%  { transform: translate(4px, -2px);}
+    100% { transform: translate(-2px, 1px);}
+}
+
+@-moz-keyframes smallRumble {
+	0% 	 {  transform: translate(-1px,-0.5px);}
+	25%  {  transform: translate(1px, 0);}
+	50%  {  transform: translate(0px, 1px);}
+	75%  {  transform: translate(-0.5px,-0.5px);}
+	100% {  transform: translate(0.5px,0);}
+}
+
+@-moz-keyframes smallRumbleAlt {
+    0%   { transform: translate(-0.5px, -0.5px);}
+    25%  { transform: translate(0.5px, 1px);}
+    50%  { transform: translate(-1px, 0px);}
+    75%  { transform: translate(2px, -1px);}
+    100% { transform: translate(-1px, 0.5px);}
+}
+
+@-moz-keyframes bigRumble {
+	0% 	 {  transform: translate(-2px,-1px);}
+	25%  {  transform: translate(2px, 0);}
+	50%  {  transform: translate(0px, 2px);}
+	75%  {  transform: translate(-1px,-1px);}
+	100% {  transform: translate(1px,0);}
+}
+
+@-moz-keyframes bigRumbleAlt {
+    0%   { transform: translate(-1px, -1px);}
+    25%  { transform: translate(1px, 2px);}
+    50%  { transform: translate(-2px, 0px);}
+    75%  { transform: translate(4px, -2px);}
+    100% { transform: translate(-2px, 1px);}
+}
+
+@-webkit-keyframes smallRumble {
+	0% 	 {  transform: translate(-1px,-0.5px);}
+	25%  {  transform: translate(1px, 0);}
+	50%  {  transform: translate(0px, 1px);}
+	75%  {  transform: translate(-0.5px,-0.5px);}
+	100% {  transform: translate(0.5px,0);}
+}
+
+@-webkit-keyframes smallRumbleAlt {
+    0%   { transform: translate(-0.5px, -0.5px);}
+    25%  { transform: translate(0.5px, 1px);}
+    50%  { transform: translate(-1px, 0px);}
+    75%  { transform: translate(2px, -1px);}
+    100% { transform: translate(-1px, 0.5px);}
+}
+
+@-webkit-keyframes bigRumble {
+	0% 	 {  transform: translate(-2px,-1px);}
+	25%  {  transform: translate(2px, 0);}
+	50%  {  transform: translate(0px, 2px);}
+	75%  {  transform: translate(-1px,-1px);}
+	100% {  transform: translate(1px,0);}
+}
+
+@-webkit-keyframes bigRumbleAlt {
+    0%   { transform: translate(-1px, -1px);}
+    25%  { transform: translate(1px, 2px);}
+    50%  { transform: translate(-2px, 0px);}
+    75%  { transform: translate(4px, -2px);}
+    100% { transform: translate(-2px, 1px);}
+}
+
+.smallEarthquake {
+    bottom: 0;
+    left: 0;
+    
+	animation-name: smallRumble;
+	animation-duration: 225ms;
+	animation-iteration-count: 100;
+	animation-timing-function: ease-in-out
+	
+	-moz-animation-name: smallRumble;
+	-moz-animation-duration: 225ms;
+	-moz-animation-iteration-count: 100;
+	-moz-animation-timing-function: ease-in-out;
+	
+	-webkit-animation-name: smallRumble;
+	-webkit-animation-duration: 225ms;
+	-webkit-animation-iteration-count: 100;
+	-webkit-animation-timing-function: ease-in-out;
+	
+}
+
+.bigEarthquake {
+    bottom: 0;
+    left: 0;
+    
+	animation-name: bigRumble;
+	animation-duration: 225ms;
+	animation-iteration-count: 100;
+	animation-timing-function: ease-in-out
+	
+	-moz-animation-name: bigRumble;
+	-moz-animation-duration: 225ms;
+	-moz-animation-iteration-count: 100;
+	-moz-animation-timing-function: ease-in-out;
+	
+	-webkit-animation-name: bigRumble;
+	-webkit-animation-duration: 225ms;
+	-webkit-animation-iteration-count: 100;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.smallEarthquakeAlt {
+    bottom: 0;
+    left: 0;
+    
+    animation-name: smallRumbleAlt;
+    animation-duration: 225ms;
+    animation-iteration-count: 100;
+    animation-timing-function: ease-in-out
+        
+    -moz-animation-name: smallRumbleAlt;
+	-moz-animation-duration: 225ms;
+	-moz-animation-iteration-count: 100;
+	-moz-animation-timing-function: ease-in-out;  
+    
+    -webkit-animation-name: smallRumbleAlt;
+	-webkit-animation-duration: 225ms;
+	-webkit-animation-iteration-count: 100;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.bigEarthquakeAlt {
+    bottom: 0;
+    left: 0;
+    
+    animation-name: bigRumbleAlt;
+    animation-duration: 225ms;
+    animation-iteration-count: 100;
+    animation-timing-function: ease-in-out
+        
+    -moz-animation-name: bigRumbleAlt;
+	-moz-animation-duration: 225ms;
+	-moz-animation-iteration-count: 100;
+	-moz-animation-timing-function: ease-in-out;  
+    
+    -webkit-animation-name: bigRumbleAlt;
+	-webkit-animation-duration: 225ms;
+	-webkit-animation-iteration-count: 100;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.earthquakePositionMod {
+    
+}
+
+/*Rain css*/
+
+#rain1 {
+    z-index: 99;
+}
+
+#rain2 {
+    z-index: 101;
+}
+
+#rain3 {
+    z-index: 103;
+}
+.rain {
+  background: linear-gradient(to bottom, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+  background:-webkit-linear-gradient(0% 0%,0% 100%, from(rgba(255,255,255,1) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+  animation: rainfall linear infinite;
+  -moz-animation: rainfall linear infinite;
+  -webkit-animation: rainfall linear infinite;
+}
+
+@keyframes rainfall {
+	to {margin-top: 1500px;}
+}
+
+@-webkit-keyframes rainfall {
+    to {margin-top: 1500px;}
+}
+ 
+@-moz-keyframes rainfall {
+    to {margin-top: 1500px;}
+}
+
+/*Lightning Animations*/
+
+
+@keyframes flash{
+    0%   {  opacity: 1 ;}
+    25%  {  opacity: 0.5; }
+    50%  {  opacity: 0.125;}
+    75%  {  opacity: 0.0333;}
+    100% {  opacity: 0;}
+}
+
+@-moz-keyframes flash{
+    0%   {  opacity: 1;}
+    25%  {  opacity: 0.5;}
+    50%  {  opacity: 0.125;}
+    75%  {  opacity: 0.033;}
+    100% {  opacity: 0;}
+}
+
+@-webkit-keyframes flash{
+    0%   {   opacity: 1; }
+    25%  {  opacity: 0.5;}
+    50%  {  opacity: 0.125;}
+    75%  {  opacity: 0.0333;}
+    100% {  opacity: 0;}
+}
+
+.firstFlash{
+    width:100%;
+    height: 100%;
+    z-index: 9999999;
+    
+    animation-name: flash;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out
+        
+    -moz-animation-name: flash;
+	-moz-animation-duration: 300ms;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: ease-in-out;  
+    
+    -webkit-animation-name: flash;
+	-webkit-animation-duration: 300ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.secondFlash {
+    
+    animation-name: flash;
+    animation-duration: 600ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out
+        
+    -moz-animation-name: flash;
+	-moz-animation-duration: 600ms;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: ease-in-out;  
+    
+    -webkit-animation-name: flash;
+	-webkit-animation-duration: 600ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+/**Clickables**/
+#ocarina {
+    z-index: 9999999;
+    left: 90%;
+    top: 90%;
+    width: 40px;
+    height: 35px;
+}
+#ocarina img {
+    width: 40px;
+    height: 35px;
+}
+#moonOverlay {
+    z-index: 9999999;
+}
+
+#musicToggle {
+    z-index: 9999999;
+    left: 3%;
+    top: 3%;
+    width: 33px;
+    height: 33px;
+    background-color: rgba(225,225,225, 0.55);
+    border-radius: 10px;
+}
+
+#musicToggle img {
+    height: 30px;
+    width: 25px;
+    margin: auto;
+    display: block;
+}
+
+/*Final Overlay*/
+#finalOverlay {
+    z-index: 1000000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    visibility: hidden;
+}
+
+#finalOverlay img {
+    z-index: ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#finalOverlay p {
+    z-index: 1000001;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 84%;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    text-shadow: 2px 2px #222;
+}
